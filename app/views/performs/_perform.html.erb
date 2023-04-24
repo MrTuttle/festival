@@ -1,12 +1,26 @@
-<div id="<%= dom_id perform %>">
-  <p>
-    <strong>Name:</strong>
-    <%= perform.name %>
+<div id="<%= dom_id perform %>" class="card p-4">
+  <p class="mb-0">
+    <strong>Company:</strong>
+    <%= perform.company %>
+  </p>
+  <p class="mb-0">
+    <strong>Title:</strong>
+    <%= perform.title %>
+  </p>
+  <p class="mb-0">
+    <strong>Date:</strong>
+    <%= perform.start_time %>
   </p>
 
-  <p>
+  <p class="mb-0">
     <strong>Address:</strong>
     <%= perform.address %>
+  </p>
+
+  <p class="mb-0">
+    <strong>Collected:</strong>
+    <%= perform.collected %>
+
   </p>
 
 </div>

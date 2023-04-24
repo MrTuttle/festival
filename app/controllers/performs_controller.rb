@@ -80,6 +80,6 @@ class PerformsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def perform_params
-      params.require(:perform).permit(:name, :address)
+      params.require(:perform).permit(:title, :company, :address, :start_time, :collected)
     end
 end
