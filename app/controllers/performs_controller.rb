@@ -12,8 +12,8 @@ class PerformsController < ApplicationController
         lat: perform.latitude,
         lng: perform.longitude,
 
-        info_window_html: render_to_string(partial: "info_window", locals: {perform: perform}),
-        marker_html: render_to_string(partial: "marker", locals: {perform: perform}) # Pass the flat to the partial
+        info_window_html: render_to_string(partial: "info_window", locals: {perform: perform}), # Pass the perform to the partial
+        marker_html: render_to_string(partial: "marker", locals: {perform: perform}) # Pass the perform to the partial
 
       }
 
