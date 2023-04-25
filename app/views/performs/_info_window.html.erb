@@ -1,3 +1,8 @@
 <h2><%= perform.title %></h2>
-<p><%= perform.company %></p>
-<%#= perform.start_time.strftime('%I:%M | %a %d %B') %>
+<p class="mb-0"><%= perform.company %></p>
+<p><%= perform.start_time.strftime('%I:%M | %a %d %B') %></p>
+<p><%= perform.collected %></p>
+
+<%= simple_form_for(perform) do |f| %>
+<%= f.input :collected %>
+<% end %>
