@@ -5,8 +5,8 @@
 <div id="performs">
   <% @performs.each do |perform| %>
     <% if perform.collected == true %>
-    <%= render perform %>
-    <%  end %>
+      <%= render perform %>
+    <% end %>
     <p>
       <%= link_to "Show this perform", perform %>
     </p>

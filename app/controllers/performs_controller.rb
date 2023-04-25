@@ -5,9 +5,12 @@ class PerformsController < ApplicationController
   def index
     #@performs = Perform.all
     @performs = Perform.geocoded
+    # The `geocoded` scope filters only performs with coordinates
 
-      # The `geocoded` scope filters only performs with coordinates
-    @markers = @performs.map do |perform|
+    @collecteds = Perform.where(collected: true)
+    # collected == true filter
+
+    @markers = @collecteds.map do |perform|
       {
         lat: perform.latitude,
         lng: perform.longitude,
@@ -16,7 +19,6 @@ class PerformsController < ApplicationController
         marker_html: render_to_string(partial: "marker", locals: {perform: perform}), # Pass the perform to the partial
         start_time_html: render_to_string(partial: "start_time"), locals: {perform: perform}
       }
-
 
     end
   end
