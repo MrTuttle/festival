@@ -1,10 +1,13 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
-<p>this map doesn't display markers</p>
+<p class="mb-0"><s>this map doesn't display markers</s></p>
+<p>markers display since i define home class method in application_controller</p>
 <p><%= link_to "map with markers managed by perform controller", performs_path %>
 </p>
 <p><%= link_to "New perform", new_perform_path %></p>
 
+<%= render partial: "performs/start_time" %>
+<%#= render partial: "performs/perform" %>
 
 <div style="width: 100%; height: 600px;"
   data-controller="map"

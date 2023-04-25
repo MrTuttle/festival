@@ -13,8 +13,8 @@ class PerformsController < ApplicationController
         lng: perform.longitude,
 
         info_window_html: render_to_string(partial: "info_window", locals: {perform: perform}), # Pass the perform to the partial
-        marker_html: render_to_string(partial: "marker", locals: {perform: perform}) # Pass the perform to the partial
-
+        marker_html: render_to_string(partial: "marker", locals: {perform: perform}), # Pass the perform to the partial
+        start_time_html: render_to_string(partial: "start_time"), locals: {perform: perform}
       }
 
 
@@ -23,6 +23,11 @@ class PerformsController < ApplicationController
 
   # GET /performs/1 or /performs/1.json
   def show
+    #@perform.start_time.strftime('%I:%M | %a %d %B')
+    @debut = @perform.start_time.strftime('%I:%M | %a %d %B')
+
+
+
   end
 
   # GET /performs/new
@@ -75,7 +80,8 @@ class PerformsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_perform
-      @perform = Perform.find(params[:id])
+      #@perform = Perform.find(params[:id])
+
     end
 
     # Only allow a list of trusted parameters through.
