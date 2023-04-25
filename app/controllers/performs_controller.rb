@@ -24,7 +24,6 @@ class PerformsController < ApplicationController
   # GET /performs/1 or /performs/1.json
   def show
     #@perform.start_time.strftime('%I:%M | %a %d %B')
-    @debut = @perform.start_time.strftime('%I:%M | %a %d %B')
 
 
 
@@ -80,7 +79,8 @@ class PerformsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_perform
-      #@perform = Perform.find(params[:id])
+      @perform = Perform.find(params[:id])#params available in class methods define in before_action
+      @debut = @perform.start_time.strftime('%I:%M | %a %d %B')#work only in a show instance
 
     end
 
