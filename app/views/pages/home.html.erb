@@ -5,7 +5,11 @@
 <p><%= link_to "map with markers managed by perform controller", performs_path %>
 </p>
 <p><%= link_to "New perform", new_perform_path %></p>
+<div>
+<%= cl_image_tag("pcwp7iipgft01ofhzmurfh0m030u",
+      width: 400, height: 300, crop: :fill) %>
 
+</div>
 <%= render partial: "performs/start_time" %>
 <%#= render partial: "performs/perform" %>
 
