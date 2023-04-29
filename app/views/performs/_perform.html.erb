@@ -25,6 +25,8 @@
     <%= perform.collected %>
 
   </p>
-  <%= cl_image_tag perform.photo.key, height: 300, width: 400, crop: :fill %>
-
+  <%#= cl_image_tag perform.photo.key, height: 300, width: 400, crop: :fill %>
+  <% perform.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
 </div>
