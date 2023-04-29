@@ -71,16 +71,15 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
-.no_underline a {
-  color: inherit;
+.no_link a {
   text-decoration: none;
+  color:inherit;
 }
-.line {
-  border: 1px, red, solid;
+.no_link a:hover {
+  color: $primary;
+}
 
-}
-.line img {
-  width:100%;
-  height:20rem;
-  object-fit: cover;
+.big-title {
+  font-size: 5rem;
+  font-weight: 200;
 }
