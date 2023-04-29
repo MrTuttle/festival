@@ -2,14 +2,16 @@
 
 <h1>Performs</h1>
 
-<div id="performs">
+<div id="performs" class="cards">
   <% @performs.each do |perform| %>
     <% if perform.collected == true %>
-      <%= render perform %>
+        <div class="card no_underline">
+      <%= link_to perform do %>
+          <%= render perform %>
+          <%= link_to "Show this perform", perform, class: "pt-4" %>
+        </div>
+      <% end %>
     <% end %>
-    <p>
-      <%= link_to "Show this perform", perform %>
-    </p>
   <% end %>
 </div>
 

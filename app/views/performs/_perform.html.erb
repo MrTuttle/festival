@@ -1,11 +1,16 @@
-<div id="<%= dom_id perform %>" class="card p-4">
-  <p class="mb-0">
-    <strong>Company:</strong>
-    <%= perform.company %>
-  </p>
-  <p class="mb-0">
-    <strong>Title:</strong>
+  <div class="line">
+    <%#= cl_image_tag perform.photo.key, height: 300, width: 400, crop: :fill %>
+    <% perform.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 900, width: 1600, :crop=>"limit" %>
+    <% end %>
+  </div>
+<div id="<%= dom_id perform %>" class="p-4">
+  <h2 class="pt-4">
     <%= perform.title %>
+  </h2>
+  <p class="mb-0">
+    <strong>Company:
+    <%= perform.company %></strong>
   </p>
   <p class="mb-0">
     <strong>Date:</strong>
@@ -25,8 +30,4 @@
     <%= perform.collected %>
 
   </p>
-  <%#= cl_image_tag perform.photo.key, height: 300, width: 400, crop: :fill %>
-  <% perform.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
 </div>
