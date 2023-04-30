@@ -1,13 +1,11 @@
 <p style="color: green"><%= notice %></p>
-<div class="d-flex p-2">
-<%= render @perform %>
+<div id="show" class="card p-4">
+  <%= render @perform %>
 
 
-</div>
-
-<div>
-  <%= link_to "Edit this perform", edit_perform_path(@perform) %> |
-  <%= link_to "Back to performs", performs_path %>
-
-  <%= button_to "Destroy this perform", @perform, method: :delete %>
+  <div>
+    <%= link_to "Back to performs", performs_path %>
+    <%= link_to "Edit this perform", edit_perform_path(@perform) %> |
+    <%= button_to "Destroy this perform", @perform, method: :delete %>
+  </div>
 </div>
