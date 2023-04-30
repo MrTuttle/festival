@@ -4,6 +4,12 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
+    <div>
+    <% @perform.photos.each do | photo | %>
+      <%= cl_image_tag photo.key, height: 150, width: 200, crop: :fill %>
+      <p><strong>photo key :</strong> <%= photo.key %></p>
+    <% end %>
+  </div>
     <%= f.input :photos, as: :file, input_html:{ multiple: true } %>
     <%= f.input :title %>
     <%= f.input :company %>
@@ -24,6 +30,7 @@
     %>
     <%= f.input :collected %>
   </div>
+
 
   <div class="form-actions">
     <%= f.button :submit %>
