@@ -18,7 +18,7 @@
 
 }
 
-#performs .card .img_container{
+#performs .card .img_container, #collecteds .card .img_container{
   aspect-ratio: 16/9;
 
   img {
@@ -28,7 +28,7 @@
   }
 }
 
-#performs .card:hover .img_container img{
+#performs .card:hover .img_container img, #collecteds .card:hover .img_container img{
   // filter: grayscale(0);
   // transform: scale(1.1);
   transform: scale(1.1);

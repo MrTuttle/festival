@@ -1,8 +1,5 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Performs</h1>
-
-<div id="performs" class="cards">
+<h1> top performs (collected perform)</h1>
+<div id="collecteds" class="cards">
   <% @performs.each do |perform| %>
         <div class="card no_link">
       <%= link_to perform do %>
@@ -17,5 +14,3 @@
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
-
-<%= link_to "New perform", new_perform_path %>
