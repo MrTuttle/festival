@@ -1,16 +1,32 @@
 class PerformsController < ApplicationController
   before_action :set_perform, only: %i[ show edit update destroy ]
 
+  def top
+    @performs = Perform.where(collected: true)
+
+    @markers = @performs.map do |perform|
+      {
+        lat: perform.latitude,
+        lng: perform.longitude,
+
+        info_window_html: render_to_string(partial: "info_window", locals: {perform: perform}), # Pass the perform to the partial
+        marker_html: render_to_string(partial: "marker", locals: {perform: perform}), # Pass the perform to the partial
+        start_time_html: render_to_string(partial: "start_time"), locals: {perform: perform}
+      }
+    end
+  end
+
+
   # GET /performs or /performs.json
   def index
-    #@performs = Perform.all
-    @performs = Perform.geocoded
+    @performs = Perform.all
+    #@performs = Perform.geocoded
     # The `geocoded` scope filters only performs with coordinates
 
-    @collecteds = Perform.where(collected: true)
+    #@collecteds = Perform.where(collected: true)
     # collected == true filter
 
-    @markers = @collecteds.map do |perform|
+    @markers = @performs.map do |perform|
       {
         lat: perform.latitude,
         lng: perform.longitude,
