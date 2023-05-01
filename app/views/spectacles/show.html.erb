@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+<div id="show" class="card p-4">
+  <%= render @spectacle %>
+
+
+
+  <div>
+    <%= link_to "Back to spectacles", spectacles_path %>
+    <%= link_to "Edit this spectacle", edit_spectacle_path(@spectacle) %> |
+    <%= button_to "Destroy this spectacle", @spectacle, method: :delete %>
+  </div>
+</div>

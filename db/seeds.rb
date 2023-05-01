@@ -68,6 +68,7 @@ platz = {
 scie = {
   company: "La Micro Cie",
   address: "Place de l'Obélisque, 71100 Chalon-sur-Saône, France",
+  start_time: Fri, 21 Jul 2023 22:30,
   title: "Olga",
   collected: false
 }
