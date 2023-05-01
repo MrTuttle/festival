@@ -75,5 +75,19 @@ scie = {
 [grasshoppers, mamontagne, buratina, derlauf, casseroles, armoire, platz, scie].each do |attributes|
   perform = Perform.create!(attributes)
   puts "Created #{perform.title}"
+
+  olga = Spectacle.create!(
+    title: "Olga",
+    photo: "36jy1efoyan554b3mms8yhp59hng",
+    description: "Olga is alone, perhaps at home. She sees nobody, speaks to nobody, knows nobody. She d
+    oesn't need anyone. Everything is there, in her cocoon. Her reserves, her instruments, her small objects... Enough to hold out for a while before ending up underwater."
+  )
+
+  olga = Spectacle.create!(
+    title: "Sensational Platz",
+    photo: "l72py9t89nzyw3r51fy31rcb8dhb",
+    description: "After writing her first solo show I took refuge there, there, there ... crossing the mental and physical refuges of the individual, Margo Chou takes us back to her nocturnal refuge by evoking the platz with which she has had an intimate relationship for fifteen years."
+  )
+
 end
 puts "Finished!"
