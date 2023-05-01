@@ -98,7 +98,7 @@ class PerformsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_perform
       @perform = Perform.find(params[:id])#params available in class methods define in before_action
-      @debut = @perform.start_time.strftime('%I:%M | %a %d %B')#work only in a show instance
+      @debut = @perform.start_time.strftime('%I:%M | %a %d %^b')#work only in a show instance
 
     end
 

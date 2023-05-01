@@ -14,7 +14,10 @@
   </p>
   <p class="mb-0">
     <strong>Date:</strong>
-    <%= perform.start_time.strftime('%I:%M | %a %d %B') %>
+    <%= perform.start_time != nil ? (perform.start_time.strftime('%I:%M | %a %d %^b')) : () %>
+    <%#= perform.start_time.strftime('%I:%M | %a %d %B') %>
+    <%= @debut %>
+
 
   </p>
 

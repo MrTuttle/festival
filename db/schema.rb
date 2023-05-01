@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_28_131226) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_30_235324) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_28_131226) do
     t.string "title"
     t.time "start_time"
     t.boolean "collected", default: false
+  end
+
+  create_table "spectacles", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
