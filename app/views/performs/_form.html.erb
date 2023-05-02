@@ -10,8 +10,8 @@
       <p><strong>photo key :</strong> <%= photo.key %></p>
     <% end %>
   </div>
-    <%= f.input :photos, as: :file, input_html:{ multiple: true } %>
-    <%= f.input :title %>
+    <%#= f.input :photos, as: :file, input_html:{ multiple: true } %>
+    <%#= f.input :title %>
     <%= f.input :company %>
     <%#= f.input :start_time, as: :datetime %>
     <%= f.input :start_time, as: :datetime, label:'Launch Date & Time', class: "form-control form-control-lg", input_html: {value: params[:start_date]}, wrapper_html: { class: 'mb-3' }, html5: true %>

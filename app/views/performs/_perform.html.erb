@@ -1,8 +1,15 @@
 <div class="img_container">
-  <%#= cl_image_tag perform.photo.key, height: 300, width: 400, crop: :fill %>
-  <% perform.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 900, width: 1600, :crop=>"limit" %>
-  <% end %>
+  <%= cl_image_tag("#{perform.spectacle.photo}", height: 450, width: 800, :crop=>"limit") %>
+
+  <%# c'est mis a fonctionner d'un coup - peut être y à t'il une latence avec cloudinary,
+  j'ai eu plusieur fois cette impression en liant des images %>
+
+
+  <%# perform.spectacle.photos.each do |photo| %>
+    <%#= cl_image_tag("#{photo}", height: 900, width: 1600, :crop=>"limit") %>
+  <%# end %>
+
+
 </div>
 <div id="<%= dom_id perform %>" class="p-4">
   <h2 class="big-title pt-4">
@@ -33,8 +40,5 @@
     <strong>Collected:</strong>
     <%= perform.collected %>
   </p>
-  <p class="mb-0">
-    <strong>Photos.ids</strong>
-    <%= perform.photos.ids %>
-  </p>
+
 </div>

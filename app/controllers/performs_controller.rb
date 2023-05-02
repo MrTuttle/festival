@@ -42,11 +42,11 @@ class PerformsController < ApplicationController
   # GET /performs/1 or /performs/1.json
   def show
     #@perform.start_time.strftime('%I:%M | %a %d %B')
+
   end
 
   # GET /performs/new
   def new
-    #@spectacle = Spectacle.find(params[:spectacle_id])
     @perform = Perform.new
   end
 
@@ -57,6 +57,9 @@ class PerformsController < ApplicationController
   # POST /performs or /performs.json
   def create
     @perform = Perform.new(perform_params)
+
+    # associe perform et spectacle à la creation du perform
+    @perform.spectacle = @spectacle
 
     respond_to do |format|
       if @perform.save
@@ -94,6 +97,11 @@ class PerformsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
+    def set_spectacle
+      #@spectacle = Spectacle.find(params[:spectacle_id])
+    end
+
     def set_perform
       @perform = Perform.find(params[:id])#params available in class methods define in before_action
       #@debut = @perform.start_time.strftime('%I:%M | %a %d %^b')#work only in a show instance
