@@ -48,6 +48,7 @@ class PerformsController < ApplicationController
   # GET /performs/new
   def new
     @perform = Perform.new
+    #@perform.spectacle = @spectacle
   end
 
   # GET /performs/1/edit
@@ -56,7 +57,11 @@ class PerformsController < ApplicationController
 
   # POST /performs or /performs.json
   def create
+    #build perform with params
     @perform = Perform.new(perform_params)
+
+    #find spectacle useless ? already set défine in set spectacle
+    #@spectacle = Spectacle.find(params[:spectacle_id])
 
     # associe perform et spectacle à la creation du perform
     @perform.spectacle = @spectacle
@@ -99,7 +104,7 @@ class PerformsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
 
     def set_spectacle
-      #@spectacle = Spectacle.find(params[:spectacle_id])
+      @spectacle = Spectacle.find(params[:spectacle_id])
     end
 
     def set_perform

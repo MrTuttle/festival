@@ -2,6 +2,7 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Spectacles</h1>
+<p><%= link_to "create spectacle", new_spectacle_path %></p>
 
 <div id="spectacles" class="cards">
   <% @spectacles.each do |spectacle| %>

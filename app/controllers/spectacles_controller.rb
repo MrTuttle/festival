@@ -23,6 +23,15 @@ class SpectaclesController < ApplicationController
 
   def create
     @spectacle = Spectacle.new(spectacle_params)
+    respond_to do |format|
+      if @spectacle.save
+        format.html { redirect_to spectacle_url(@spectacle), notice: "spectacle was successfully created." }
+        format.json { render :show, status: :created, location: @spectacle }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @spectacle.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update

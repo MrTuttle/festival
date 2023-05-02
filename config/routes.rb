@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   root to: "pages#home"
+
   resources :spectacles do
+    resources :performs, only: [:new, :create]
   end
+
   resources :performs do
     collection do
       get :top

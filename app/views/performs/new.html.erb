@@ -1,4 +1,7 @@
 <h1>New perform</h1>
+<%#= cl_image_tag("#{@perform.spectacle.photo}", height: 90, width: 160, :crop=>"limit") %></strong></p>
+<p><strong>
+<%= @perform.spectacle.title %>
 <div class="card p-4">
   <%= render "form", perform: @perform %>
 </div>

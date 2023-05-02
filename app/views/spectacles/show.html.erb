@@ -31,8 +31,14 @@
 
 
   <div>
-    <%= link_to "Back to spectacles", spectacles_path %>
+   <p> <%= link_to "Back to spectacles", spectacles_path %> |
     <%= link_to "Edit this spectacle", edit_spectacle_path(@spectacle) %> |
-    <%= button_to "Destroy this spectacle", @spectacle, method: :delete %>
+    <%= link_to "Créer une représentation", new_spectacle_perform_path(@spectacle) %> |
+    <%= link_to "Delete",
+    spectacle_path(@spectacle),
+    data: {turbo_method: :delete, turbo_confirm: "delete this spectacle ?"} %>
+    </p>
+
+    <%#= button_to "Destroy this spectacle", @spectacle, method: :delete %>
   </div>
 </div>
