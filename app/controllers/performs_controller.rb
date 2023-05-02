@@ -46,6 +46,7 @@ class PerformsController < ApplicationController
 
   # GET /performs/new
   def new
+    #@spectacle = Spectacle.find(params[:spectacle_id])
     @perform = Perform.new
   end
 
@@ -98,7 +99,7 @@ class PerformsController < ApplicationController
       #@debut = @perform.start_time.strftime('%I:%M | %a %d %^b')#work only in a show instance
 
 
-      # si start_time est different de nil tu formate la date, sinon tu fais rien
+      # si start_time est different de nil tu formate la date, sinon tu fais rien - @date ne marche que pour show
       @date = @perform.start_time != nil ? (@perform.start_time.strftime('%I:%M | %a %d %^b')) : ()
 
 
