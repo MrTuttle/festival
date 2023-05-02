@@ -1,0 +1,14 @@
+<h1>Editing spectacle</h1>
+<p><strong>
+<%= @spectacle.title %>
+</strong></p>
+<div class="card p-4">
+  <%= render "form", spectacle: @spectacle %>
+</div>
+
+<br>
+
+<div>
+  <%= link_to "Show this spectacle", @spectacle %> |
+  <%= link_to "Back to spectacles", spectacles_path %>
+</div>
