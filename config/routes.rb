@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :spectacles do
-    resources :performs, only: [:new, :create, :edit]
+    resources :performs
   end
+
+
 
   resources :performs do
     collection do
