@@ -52,6 +52,7 @@ class PerformsController < ApplicationController
     #@spectacle = Spectacle.find(params[:spectacle_id])
     @perform = Perform.new
     @perform.spectacle = @spectacle
+
   end
 
   # GET /performs/1/edit
@@ -60,7 +61,7 @@ class PerformsController < ApplicationController
 
   # POST /performs or /performs.json
   def create
-    raise
+
     #build perform with params
 
     @perform = Perform.new(perform_params)
