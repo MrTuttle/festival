@@ -47,6 +47,7 @@ class PerformsController < ApplicationController
 
   # GET /performs/new
   def new
+    @spectacle = Spectacle.find(params[:spectacle_id])
     @perform = Perform.new
     @perform.spectacle = @spectacle
   end
@@ -121,6 +122,6 @@ class PerformsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def perform_params
-      params.require(:perform).permit(:title, :company, :address, :start_time, :collected, photos: [])
+      params.require(:perform).permit(:title, :company, :address, :start_time, :collected)
     end
 end

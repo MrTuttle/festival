@@ -1,14 +1,14 @@
 <p style="color: green"><%= notice %></p>
 <div id="show" class="card p-4">
   <%= render @spectacle %>
+      <p class="">
+        <%= @spectacle.description %>
+      </p>
   <%#= @spectacle.performs.company %>
     <% @spectacle.performs.each do | attribut | %>
       <h3 class="mb-0">
           <%= attribut.company %>
       </h3>
-      <p class="">
-        <%= @spectacle.description %>
-      </p>
 
       <p>Représentations</p>
 

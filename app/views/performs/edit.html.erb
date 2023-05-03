@@ -1,5 +1,9 @@
 <h1>Editing perform</h1>
-<%= cl_image_tag("#{@perform.spectacle.photo}", height: 90, width: 160, :crop=>"limit") %></strong></p>
+    <% @perform.spectacle.photos.each do | photo | %>
+      <%= cl_image_tag photo.key, height: 150, width: 200, crop: :fill %>
+      <p><strong>photo key :</strong> <%= photo.key %></p>
+    <% end %>
+<%#= cl_image_tag("#{@perform.spectacle.photo}", height: 90, width: 160, :crop=>"limit") %></strong></p>
 <p><strong>
 <%= @perform.spectacle.title %>
 </strong></p>
