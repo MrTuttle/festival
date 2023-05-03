@@ -4,9 +4,16 @@
   <%= render @perform %>
 
 
+
+
   <div>
-    <%= link_to "Back to performs", performs_path %>
-    <%= link_to "Edit this perform", edit_perform_path(@perform) %> |
-    <%= button_to "Destroy this perform", @perform, method: :delete %>
+    <p>
+      <%= link_to "Back to perform", performs_path %> |
+      <%= link_to "Edit this perform", edit_perform_path(@perform) %> |
+      <%= link_to "Delete",
+      perform_path(@perform),
+      data: {turbo_method: :delete, turbo_confirm: "delete this spectacle ?"} %>
+    </p>
   </div>
+
 </div>

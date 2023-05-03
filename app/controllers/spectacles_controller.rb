@@ -7,13 +7,8 @@ class SpectaclesController < ApplicationController
   end
 
   def show
-    #@spectacle = Spectacle.find(params[:id])
-
-    # (methode temporaire) retrouve les performs qui ont le même titre que spectacle
-    # association à remplacer par un select des spectacles disponibles dans le _form perform
-    #@perform = Perform.where("title LIKE ?", @spectacle.title)
-    # pas acces a company
   end
+
   def new
     @spectacle = Spectacle.new
   end
@@ -63,7 +58,7 @@ class SpectaclesController < ApplicationController
   end
 
   def spectacle_params
-    params.require(:spectacle).permit(:title, :description, photos: [])
+    params.require(:spectacle).permit(:title, :company, :description, photos: [])
   end
 
 

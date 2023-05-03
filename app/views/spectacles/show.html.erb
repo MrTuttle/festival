@@ -1,37 +1,31 @@
 <p style="color: green"><%= notice %></p>
 <div id="show" class="card p-4">
   <%= render @spectacle %>
-      <p class="">
-        <%= @spectacle.description %>
-      </p>
-  <%#= @spectacle.performs.company %>
-    <% @spectacle.performs.each do | attribut | %>
-      <h3 class="mb-0">
-          <%= attribut.company %>
-      </h3>
+  <p class="">
+    <%= @spectacle.description %>
+  </p>
+  <p>Représentations</p>
 
-      <p>Représentations</p>
-
-      <%= link_to attribut do %>
+  <div class="cards">
+    <% @spectacle.performs.each do | perform | %>
+      <%= link_to perform do %>
         <div class="card p-4">
           <p class="mb-0"><strong>date : </strong>
-            <%= attribut.start %>
+            <%= perform.start %>
           </p>
           <p class="mb-0"><strong>Address : </strong>
-              <%= attribut.address %>
+              <%= perform.address %>
           </p>
               <p class=""><strong>Collected : </strong>
-              <%= attribut.collected %>
+              <%= perform.collected %>
           </p>
         </div>
       <% end %>
-
     <% end %>
-
-
+  </div>
 
   <div>
-   <p> <%= link_to "Back to spectacles", spectacles_path %> |
+  <p> <%= link_to "Back to spectacles", spectacles_path %> |
     <%= link_to "Edit this spectacle", edit_spectacle_path(@spectacle) %> |
     <%= link_to "Créer une représentation", new_spectacle_perform_path(@spectacle) %> |
     <%= link_to "Delete",

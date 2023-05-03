@@ -5,9 +5,6 @@
 <%= @perform.spectacle.title %>
   <div class="form-inputs">
 
-    <%#= f.input :photos, as: :file, input_html:{ multiple: true } %>
-    <%#= f.input :title %>
-    <%= f.input :company %>
     <%#= f.input :start, as: :datetime %>
     <%= f.input :start, as: :datetime, label:'Launch Date & Time', class: "form-control form-control-lg", input_html: {value: params[:start]}, wrapper_html: { class: 'mb-3' }, html5: true %>
 

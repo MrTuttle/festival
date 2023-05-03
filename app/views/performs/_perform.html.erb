@@ -14,15 +14,9 @@
 
 </div>
 <div id="<%= dom_id perform %>" class="p-4">
-  <h2 class="big-title pt-4">
-    <%#= @perform.spectacle.title %>
-    <%# @ passe pour show mais echoue dans index -%>
-    <%= perform.title %>
+  <h2 class="pt-4">
+    <%= perform.spectacle.title %>
   </h2>
-  <p class="mb-0">
-    <strong>Company:
-    <%= perform.company %></strong>
-  </p>
   <p class="mb-0">
     <strong>Date:</strong>
     <%= perform.start != nil ? (perform.start.strftime('%I:%M | %a %d %^b')) : () %>
