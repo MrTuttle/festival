@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :spectacles do
-    resources :performs, only: [:new, :create]
+    resources :performs, only: [:new, :create, :edit]
   end
 
   resources :performs do

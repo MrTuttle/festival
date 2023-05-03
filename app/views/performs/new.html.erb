@@ -1,17 +1,23 @@
 <h1>New perform</h1>
-<%#= cl_image_tag("#{@perform.spectacle.photo}", height: 90, width: 160, :crop=>"limit") %>
-<p><strong>Hello
 
-<ul>
-  <li>Spectacle : <strong><%= @spectacle.title %></strong> (@spectacle.title)</li>
-  <li>Company : <strong><%= @perform.company %></strong> (@perform.company)</li>
-  <li>ID : <strong><%= @spectacle.id %></strong> (@spectacle.id)</li>
+  <div class="d-flex mb-4">
+    <div>
+      <% @spectacle.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 150, width: 200, crop: :fill %>
+      <% end %>
+    </div>
+    <ul>
+      <li><strong>Spectacle : </strong><%= @spectacle.title %> (@spectacle.title)</li>
+      <li><strong>Company : </strong><%= @perform.company %> (@perform.company)</li>
+      <li><strong>ID : </strong><%= @spectacle.id %> (@spectacle.id)</li>
+    </ul>
+  </div>
 
-</ul>
 
-</strong></p>
 <div class="card p-4">
-  <%= render "form", perform: @perform, spectacle:@spectacle %>
+  <%= render "form", perform: @perform %>
+  <%#= render "form", perform: @perform, spectacle:@spectacle %>
+
 </div>
 <br>
 

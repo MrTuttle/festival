@@ -1,5 +1,7 @@
 class PerformsController < ApplicationController
   before_action :set_perform, only: %i[ show edit update destroy ]
+  before_action :set_spectacle, only: %i[ new create update destroy ]
+
 
   def top
     @performs = Perform.where(collected: true)
@@ -20,6 +22,7 @@ class PerformsController < ApplicationController
   # GET /performs or /performs.json
   def index
     @performs = Perform.all
+
     #@performs = Perform.geocoded
     # The `geocoded` scope filters only performs with coordinates
 
@@ -41,13 +44,12 @@ class PerformsController < ApplicationController
 
   # GET /performs/1 or /performs/1.json
   def show
-    #@perform.start_time.strftime('%I:%M | %a %d %B')
-
+    #@perform.start_time.strftime('%I:%M | %a %d %B')``
   end
 
   # GET /performs/new
   def new
-    @spectacle = Spectacle.find(params[:spectacle_id])
+    #@spectacle = Spectacle.find(params[:spectacle_id])
     @perform = Perform.new
     @perform.spectacle = @spectacle
   end
@@ -58,7 +60,9 @@ class PerformsController < ApplicationController
 
   # POST /performs or /performs.json
   def create
+    raise
     #build perform with params
+
     @perform = Perform.new(perform_params)
 
     #find spectacle useless ? already set défine in set spectacle
@@ -66,6 +70,7 @@ class PerformsController < ApplicationController
 
     # associe perform et spectacle à la creation du perform
     @perform.spectacle = @spectacle
+    @perform.save
 
     respond_to do |format|
       if @perform.save
@@ -122,6 +127,6 @@ class PerformsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def perform_params
-      params.require(:perform).permit(:title, :company, :address, :start_time, :collected)
+      params.require(:perform).permit(:spectacle_id, :company, :address, :start_time, :collected)
     end
 end
