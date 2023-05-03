@@ -13,7 +13,7 @@ class PerformsController < ApplicationController
 
         info_window_html: render_to_string(partial: "info_window", locals: {perform: perform}), # Pass the perform to the partial
         marker_html: render_to_string(partial: "marker", locals: {perform: perform}), # Pass the perform to the partial
-        start_time_html: render_to_string(partial: "start_time"), locals: {perform: perform}
+        #start_time_html: render_to_string(partial: "start_time"), locals: {perform: perform}
       }
     end
   end
@@ -36,7 +36,7 @@ class PerformsController < ApplicationController
 
         info_window_html: render_to_string(partial: "info_window", locals: {perform: perform}), # Pass the perform to the partial
         marker_html: render_to_string(partial: "marker", locals: {perform: perform}), # Pass the perform to the partial
-        start_time_html: render_to_string(partial: "start_time"), locals: {perform: perform}
+        #start_time_html: render_to_string(partial: "start_time"), locals: {perform: perform}
       }
 
     end
@@ -44,7 +44,6 @@ class PerformsController < ApplicationController
 
   # GET /performs/1 or /performs/1.json
   def show
-    #@perform.start_time.strftime('%I:%M | %a %d %B')``
   end
 
   # GET /performs/new
@@ -119,8 +118,8 @@ class PerformsController < ApplicationController
       #@debut = @perform.start_time.strftime('%I:%M | %a %d %^b')#work only in a show instance
 
 
-      # si start_time est different de nil tu formate la date, sinon tu fais rien - @date ne marche que pour show
-      @date = @perform.start_time != nil ? (@perform.start_time.strftime('%I:%M | %a %d %^b')) : ()
+      # si start est different de nil tu formate la date, sinon tu fais rien - @date ne marche que pour show
+      @date = @perform.start != nil ? (@perform.start.strftime('%I:%M | %a %d %^b')) : ()
 
 
 
@@ -128,6 +127,6 @@ class PerformsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def perform_params
-      params.require(:perform).permit(:spectacle_id, :company, :address, :start_time, :collected)
+      params.require(:perform).permit(:spectacle_id, :company, :address, :start, :collected)
     end
 end

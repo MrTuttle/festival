@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_02_231359) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_03_145512) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_02_231359) do
     t.time "start_time"
     t.boolean "collected", default: false
     t.bigint "spectacle_id"
+    t.datetime "start"
     t.index ["spectacle_id"], name: "index_performs_on_spectacle_id"
   end
 

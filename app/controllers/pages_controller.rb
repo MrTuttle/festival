@@ -12,7 +12,7 @@ class PagesController < ApplicationController
 
           info_window_html: render_to_string(partial: "performs/info_window", locals: {perform: perform}), # Pass the perform to the partial
           marker_html: render_to_string(partial: "performs/marker", locals: {perform: perform}), # Pass the perform to the partial
-          start_time_html: render_to_string(partial: "performs/start_time"), locals: {perform: perform}
+          #start_time_html: render_to_string(partial: "performs/start_time"), locals: {perform: perform}
         }
 
 
