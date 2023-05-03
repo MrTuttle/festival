@@ -48,7 +48,7 @@ class PerformsController < ApplicationController
   # GET /performs/new
   def new
     @perform = Perform.new
-    #@perform.spectacle = @spectacle
+    @perform.spectacle = @spectacle
   end
 
   # GET /performs/1/edit

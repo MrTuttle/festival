@@ -1,7 +1,8 @@
 <div class="img_container">
   <%#= cl_image_tag spectacle.photo.key, height: 300, width: 400, crop: :fill %>
-<%= cl_image_tag("#{spectacle.photo}",
-      height: 900, width: 1600, :crop=>"limit") %>
+ <% spectacle.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 900, width: 1600, crop: :fill %>
+<% end %>
 </div>
 <div id="<%= dom_id spectacle %>" class="p-4">
   <h2 class="big-title pt-4">
