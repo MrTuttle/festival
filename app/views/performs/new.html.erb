@@ -2,13 +2,13 @@
 
   <div class="d-flex mb-4">
     <div>
-      <%# @spectacle.photos.each do |photo| %>
-      <%#= cl_image_tag photo.key, height: 150, width: 200, crop: :fill %>
-      <%# end %>
+      <% @spectacle.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 150, width: 200, crop: :fill %>
+      <% end %>
     </div>
     <ul>
-      <%# <li><strong>Spectacle : </strong><%= @spectacle.title %> (@spectacle.title)</li> %>
-      <%# <li><strong>ID : </strong><%= @spectacle.id %> (@spectacle.id)</li> %>
+      <li><strong>Spectacle : </strong><%= @spectacle.title %> (@spectacle.title)</li>
+      <li><strong>ID : </strong><%= @spectacle.id %> (@spectacle.id)</li>
     </ul>
   </div>
 

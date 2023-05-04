@@ -1,8 +1,13 @@
 class PerformsController < ApplicationController
   before_action :set_perform, only: %i[ show edit update destroy ]
+
+  #work only for new, create
   #before_action :set_spectacle, only: %i[ new edit create update destroy ]
 
+  def date
+    @perform.start != nil ? (@perform.start.strftime('%I:%M | %a %d %^b')) : ()
 
+  end
   def top
     @performs = Perform.where(collected: true)
 
@@ -62,17 +67,16 @@ class PerformsController < ApplicationController
 
   # POST /performs or /performs.json
   def create
-    #build perform with params
-
+    #build perform with params -> raised ok
     @perform = Perform.new(perform_params)
 
     #find spectacle useless ? already set if défine in set spectacle -> buggy edit
-    # find assoiated spectacle -> tested ok
+    # find assoiated spectacle -> raised ok
     @spectacle = Spectacle.find(params[:spectacle_id])
 
-    # associe perform et spectacle à la creation du perform -> test ok
+    # associe perform et spectacle à la creation du perform -> raised ok
     @perform.spectacle = @spectacle
-    # create a peform id -> OK
+    # create a peform id -> raised ok
     @perform.save
 
 
@@ -122,9 +126,8 @@ class PerformsController < ApplicationController
     end
 
     def set_spectacle
+      # set_spectacle cause bugs in edit, update, destroy
       #@spectacle = Spectacle.find(params[:spectacle_id])
-
-
     end
 
     # Only allow a list of trusted parameters through.
