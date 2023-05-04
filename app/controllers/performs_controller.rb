@@ -1,6 +1,6 @@
 class PerformsController < ApplicationController
   before_action :set_perform, only: %i[ show edit update destroy ]
-  before_action :set_spectacle, only: %i[ new create update destroy ]
+  #before_action :set_spectacle, only: %i[ new edit create update destroy ]
 
 
   def top
@@ -48,7 +48,7 @@ class PerformsController < ApplicationController
 
   # GET /performs/new
   def new
-    #@spectacle = Spectacle.find(params[:spectacle_id])
+    @spectacle = Spectacle.find(params[:spectacle_id]) #si je definis ça dans set_spectacle before action, edit update ne fonctionne plus
     @perform = Perform.new
     @perform.spectacle = @spectacle
 
@@ -56,21 +56,25 @@ class PerformsController < ApplicationController
 
   # GET /performs/1/edit
   def edit
+    @perform = Perform.find(params[:id])
+
   end
 
   # POST /performs or /performs.json
   def create
-
     #build perform with params
 
     @perform = Perform.new(perform_params)
 
-    #find spectacle useless ? already set défine in set spectacle
-    #@spectacle = Spectacle.find(params[:spectacle_id])
+    #find spectacle useless ? already set if défine in set spectacle -> buggy edit
+    # find assoiated spectacle -> tested ok
+    @spectacle = Spectacle.find(params[:spectacle_id])
 
-    # associe perform et spectacle à la creation du perform
+    # associe perform et spectacle à la creation du perform -> test ok
     @perform.spectacle = @spectacle
+    # create a peform id -> OK
     @perform.save
+
 
     respond_to do |format|
       if @perform.save
@@ -109,18 +113,16 @@ class PerformsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
 
-    def set_spectacle
-      @spectacle = Spectacle.find(params[:spectacle_id])
-    end
 
     def set_perform
       @perform = Perform.find(params[:id])#params available in class methods define in before_action
-      #@debut = @perform.start_time.strftime('%I:%M | %a %d %^b')#work only in a show instance
-
-
       # si start est different de nil tu formate la date, sinon tu fais rien - @date ne marche que pour show
       @date = @perform.start != nil ? (@perform.start.strftime('%I:%M | %a %d %^b')) : ()
+      #@date = !@perform.start.nil?
+    end
 
+    def set_spectacle
+      #@spectacle = Spectacle.find(params[:spectacle_id])
 
 
     end

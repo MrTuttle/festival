@@ -4,9 +4,12 @@
       <p><strong>photo key :</strong> <%= photo.key %></p>
     <% end %>
 <%#= cl_image_tag("#{@perform.spectacle.photo}", height: 90, width: 160, :crop=>"limit") %></strong></p>
-<p><strong>
-<%= @perform.spectacle.title %>
-</strong></p>
+<p class="mb-0"><strong>spectacle :</strong><%= @perform.spectacle.title %> (@perform.spectacle.title)</p>
+<p class="mb-0"><strong>company :</strong><%= @perform.spectacle.company %> (@perform.spectacle.company)</p>
+<p class="mb-0"><strong>spectacle id :</strong><%= @perform.spectacle.id %> (@perform.spectacle.id)</p>
+<p class="mb-0"><strong>perform.spectacle_id :</strong><%= @perform.spectacle_id %> (@perform.spectacle_id)</p>
+<p class="mb-0"><strong>perform.id :</strong><%= @perform.id %> (@perform.id)</p>
+
 <div class="card p-4">
   <%= render "form", perform: @perform %>
 </div>
