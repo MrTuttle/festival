@@ -1,0 +1,14 @@
+<div class="img_container">
+  <%#= cl_image_tag spectacle.photo.key, height: 300, width: 400, crop: :fill %>
+ <% spectacle.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 900, width: 1600, crop: :fill %>
+<% end %>
+</div>
+<div id="<%= dom_id spectacle %>" class="p-4">
+  <h2 class="big-title pt-4">
+    <%= spectacle.title %>
+  </h2>
+  <p><strong>- <%= spectacle.company %></strong></p>
+
+
+</div>

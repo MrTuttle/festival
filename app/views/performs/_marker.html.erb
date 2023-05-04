@@ -1,6 +1,9 @@
 <%#= image_tag "logo.png", height: 30, width: 30, alt: "Logo" %>
 <div class="badge rounded-pill bg-primary fs-6">
-  <%= perform.start_time.strftime('%I:%M ') %>
-  <%#= perform.title %>
+  <% date = perform.start %>
+  <%#= date.nil? => false %>
+  <%#= !date.nil? => true %>
+  <%#= formate la date si il est vrai quelle n'est pas nulle %>
+  <%= date.strftime('%I:%M') if !date.nil? %>
 
 </div>

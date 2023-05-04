@@ -1,0 +1,15 @@
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Spectacles</h1>
+<p><%= link_to "create spectacle", new_spectacle_path %></p>
+
+<div id="spectacles" class="cards">
+  <% @spectacles.each do |spectacle| %>
+        <div class="card no_link">
+      <%= link_to spectacle do %>
+          <%= render spectacle %>
+      <% end %>
+        </div>
+  <% end %>
+</div>

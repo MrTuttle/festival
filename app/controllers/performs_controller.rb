@@ -1,6 +1,13 @@
 class PerformsController < ApplicationController
   before_action :set_perform, only: %i[ show edit update destroy ]
 
+  #work only for new, create
+  #before_action :set_spectacle, only: %i[ new edit create update destroy ]
+
+  def date
+    @perform.start != nil ? (@perform.start.strftime('%I:%M | %a %d %^b')) : ()
+
+  end
   def top
     @performs = Perform.where(collected: true)
 
@@ -11,7 +18,7 @@ class PerformsController < ApplicationController
 
         info_window_html: render_to_string(partial: "info_window", locals: {perform: perform}), # Pass the perform to the partial
         marker_html: render_to_string(partial: "marker", locals: {perform: perform}), # Pass the perform to the partial
-        start_time_html: render_to_string(partial: "start_time"), locals: {perform: perform}
+        #start_time_html: render_to_string(partial: "start_time"), locals: {perform: perform}
       }
     end
   end
@@ -20,6 +27,7 @@ class PerformsController < ApplicationController
   # GET /performs or /performs.json
   def index
     @performs = Perform.all
+
     #@performs = Perform.geocoded
     # The `geocoded` scope filters only performs with coordinates
 
@@ -33,7 +41,7 @@ class PerformsController < ApplicationController
 
         info_window_html: render_to_string(partial: "info_window", locals: {perform: perform}), # Pass the perform to the partial
         marker_html: render_to_string(partial: "marker", locals: {perform: perform}), # Pass the perform to the partial
-        start_time_html: render_to_string(partial: "start_time"), locals: {perform: perform}
+        #start_time_html: render_to_string(partial: "start_time"), locals: {perform: perform}
       }
 
     end
@@ -41,24 +49,36 @@ class PerformsController < ApplicationController
 
   # GET /performs/1 or /performs/1.json
   def show
-    #@perform.start_time.strftime('%I:%M | %a %d %B')
-
-
-
   end
 
   # GET /performs/new
   def new
+    @spectacle = Spectacle.find(params[:spectacle_id]) #si je definis ça dans set_spectacle before action, edit update ne fonctionne plus
     @perform = Perform.new
+    @perform.spectacle = @spectacle
+
   end
 
   # GET /performs/1/edit
   def edit
+    @perform = Perform.find(params[:id])
+
   end
 
   # POST /performs or /performs.json
   def create
+    #build perform with params -> raised ok
     @perform = Perform.new(perform_params)
+
+    #find spectacle useless ? already set if défine in set spectacle -> buggy edit
+    # find assoiated spectacle -> raised ok
+    @spectacle = Spectacle.find(params[:spectacle_id])
+
+    # associe perform et spectacle à la creation du perform -> raised ok
+    @perform.spectacle = @spectacle
+    # create a peform id -> raised ok
+    @perform.save
+
 
     respond_to do |format|
       if @perform.save
@@ -96,14 +116,22 @@ class PerformsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
+
     def set_perform
       @perform = Perform.find(params[:id])#params available in class methods define in before_action
-      @debut = @perform.start_time.strftime('%I:%M | %a %d %B')#work only in a show instance
+      # si start est different de nil tu formate la date, sinon tu fais rien - @date ne marche que pour show
+      @date = @perform.start != nil ? (@perform.start.strftime('%I:%M | %a %d %^b')) : ()
+      #@date = !@perform.start.nil?
+    end
 
+    def set_spectacle
+      # set_spectacle cause bugs in edit, update, destroy
+      #@spectacle = Spectacle.find(params[:spectacle_id])
     end
 
     # Only allow a list of trusted parameters through.
     def perform_params
-      params.require(:perform).permit(:title, :company, :address, :start_time, :collected, photos: [])
+      params.require(:perform).permit(:spectacle_id, :address, :start, :collected)
     end
 end

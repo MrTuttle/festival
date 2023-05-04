@@ -1,0 +1,38 @@
+<p style="color: green"><%= notice %></p>
+<div id="show" class="card p-4">
+  <%= render @spectacle %>
+  <p class="">
+    <%= @spectacle.description %>
+  </p>
+  <p>Représentations</p>
+
+  <div class="cards">
+    <% @spectacle.performs.each do | perform | %>
+      <%= link_to perform do %>
+        <div class="card p-4">
+          <p class="mb-0"><strong>date : </strong>
+            <%= perform.start %>
+          </p>
+          <p class="mb-0"><strong>Address : </strong>
+              <%= perform.address %>
+          </p>
+              <p class=""><strong>Collected : </strong>
+              <%= perform.collected %>
+          </p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div>
+  <p> <%= link_to "Back to spectacles", spectacles_path %> |
+    <%= link_to "Edit this spectacle", edit_spectacle_path(@spectacle) %> |
+    <%= link_to "Ajouter une représentation", new_spectacle_perform_path(@spectacle) %> |
+    <%= link_to "Delete",
+    spectacle_path(@spectacle),
+    data: {turbo_method: :delete, turbo_confirm: "delete this spectacle ?"} %>
+    </p>
+
+    <%#= button_to "Destroy this spectacle", @spectacle, method: :delete %>
+  </div>
+</div>

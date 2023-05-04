@@ -1,20 +1,19 @@
 
-<%= simple_form_for(@perform) do |f| %>
+<%= simple_form_for [@spectacle, @perform] do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
+<%= @perform.spectacle.title %>
+<p class="mb-0"><strong>spectacle :</strong><%= @perform.spectacle.title %> (@perform.spectacle.title)</p>
+<p class="mb-0"><strong>company :</strong><%= @perform.spectacle.company %> (@perform.spectacle.company)</p>
+<p class="mb-0"><strong>spectacle id :</strong><%= @perform.spectacle.id %> (@perform.spectacle.id)</p>
+<p class="mb-0"><strong>perform.spectacle_id :</strong><%= @perform.spectacle_id %> (@perform.spectacle_id)</p>
+<p class="mb-0"><strong>perform.id :</strong><%= @perform.id %> (@perform.id)</p>
   <div class="form-inputs">
-    <div>
-    <% @perform.photos.each do | photo | %>
-      <%= cl_image_tag photo.key, height: 150, width: 200, crop: :fill %>
-      <p><strong>photo key :</strong> <%= photo.key %></p>
-    <% end %>
-  </div>
-    <%= f.input :photos, as: :file, input_html:{ multiple: true } %>
-    <%= f.input :title %>
-    <%= f.input :company %>
-    <%#= f.input :start_time, as: :datetime %>
-    <%= f.input :start_time, as: :datetime, label:'Launch Date & Time', class: "form-control form-control-lg", input_html: {value: params[:start_date]}, wrapper_html: { class: 'mb-3' }, html5: true %>
+
+    <%#= f.input :start, as: :datetime %>
+    <%= f.input :start, as: :datetime, label:'Launch Date & Time', class: "form-control form-control-lg", input_html: {value: params[:start]}, wrapper_html: { class: 'mb-3' }, html5: true %>
+
+   <%# mapbox address autocomplete %>
     <p><strong>Current address : </strong><%= @perform.address %><p>
     <%= f.input :address,
       input_html: {

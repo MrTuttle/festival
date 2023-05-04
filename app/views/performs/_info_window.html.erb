@@ -1,9 +1,7 @@
 <div class="p4">
-  <p class="mb-0"><strong><%= perform.title %></strong></p>
-  <p class="mb-0"><%= perform.company %></p>
-  <p class="mb-0"><%= perform.start_time.strftime('%I:%M | %a %d %B') %></p>
-  <p class="mb-0"><%= perform.collected %></p>
-
+  <p class="mb-0"><strong><%= perform.spectacle.title %></strong></p>
+  <p class="mb-0">collected ? : <%= perform.collected %></p>
+<p>formulaire :</p>
   <%= simple_form_for(perform) do |f| %>
   <%= f.input :collected %>
   <% end %>

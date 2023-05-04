@@ -6,7 +6,7 @@
   <% @performs.each do |perform| %>
         <div class="card no_link">
       <%= link_to perform do %>
-          <%= render perform %>
+          <%= render perform, perform:@perform %>
       <% end %>
         </div>
   <% end %>
