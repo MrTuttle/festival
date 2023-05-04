@@ -4,11 +4,11 @@
 
 <div id="performs" class="cards">
   <% @performs.each do |perform| %>
-        <div class="card no_link">
+    <div class="card no_link">
       <%= link_to perform do %>
-          <%= render perform, perform:@perform %>
+        <%= render perform, perform:@perform %>
       <% end %>
-        </div>
+    </div>
   <% end %>
 </div>
 

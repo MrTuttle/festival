@@ -6,13 +6,13 @@
   </p>
   <p>Représentations</p>
   <%#= render "performs", :spectacle(@spectacle) %>
-<p>***********</p>
+  <p>* * * * * * * * * * *</p>
   <div class="cards">
     <% @spectacle.performs.each do | perform | %>
 
       <div class="card no_link">
-        <%= link_to perform do %>
-          <div class="p-4">
+        <div class="p-4">
+          <%= link_to perform do %>
             <p class="mb-0"><strong>date : </strong>
               <% date = perform.start %>
               <%= date.strftime('%H:%M | %a %d %^b') if !date.nil? %>
@@ -24,8 +24,13 @@
                 <p class=""><strong>Collected : </strong>
                 <%= perform.collected %>
             </p>
+          <% end %>
+          <div class="">
+            <%= simple_form_for(perform) do |f| %>
+              <%= f.input :collected %>
+            <% end %>
           </div>
-        <% end %>
+        </div>
       </div>
 
     <% end %>

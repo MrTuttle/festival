@@ -4,10 +4,7 @@ class PerformsController < ApplicationController
   #work only for new, create
   #before_action :set_spectacle, only: %i[ new edit create update destroy ]
 
-  def date
-    @perform.start != nil ? (@perform.start.strftime('%I:%M | %a %d %^b')) : ()
 
-  end
   def top
     @performs = Perform.where(collected: true)
 
