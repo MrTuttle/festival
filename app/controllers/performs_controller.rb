@@ -1,6 +1,52 @@
 class PerformsController < ApplicationController
   before_action :set_perform, only: %i[ show edit update destroy ]
 
+
+  def dimanche
+
+    # TERMINAL
+#
+    # performs = Perform.all
+    # performs.each do | perform |
+      # date = perform.start
+      # puts date.sunday?
+    # end
+    # => true, false, false, true etc…   false si la date n'est pas un dimanche
+
+    # TERMINAL
+#
+    # performs = Perform.all
+    # performs.select do | perform |
+      # date = perform.start
+      # date.sunday?
+    # end
+    # => renvois un tableau contenant les perform dont les :start contiennent dimanche
+
+    ### convertis les dates en integer puis les classe - on perd l'objet complet
+    #tabula = performs.map { |perform| perform.start.strftime("%s").to_i}
+    #tabula.sort
+
+    # performs = Perform.all
+    # performs.select do |perform|
+    #   date = perform.start
+    #   date.sunday?
+
+
+    # Perform.all.select do |perform|
+    #   tata = perform if perform.start.sunday?
+    #   tata
+    # end
+    # @performs = tata
+
+    @performs = Perform.all.select do |perform|
+      perform.start.sunday?
+    end
+
+
+
+  end
+
+
   #work only for new, create
   #before_action :set_spectacle, only: %i[ new edit create update destroy ]
 
@@ -17,7 +63,12 @@ class PerformsController < ApplicationController
         marker_html: render_to_string(partial: "marker", locals: {perform: perform}), # Pass the perform to the partial
         #start_time_html: render_to_string(partial: "start_time"), locals: {perform: perform}
       }
+
     end
+  end
+
+  def saturday
+    @performs = Perform.where()
   end
 
 
