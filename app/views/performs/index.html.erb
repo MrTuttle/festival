@@ -1,14 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Performs</h1>
+<h1 class="first_title">Performs</h1>
+
+
 
 <div id="performs" class="cards">
   <% @performs.each do |perform| %>
-        <div class="card no_link">
+    <div class="card no_link">
       <%= link_to perform do %>
-          <%= render perform, perform:@perform %>
+        <%= render perform, perform:@perform %>
       <% end %>
-        </div>
+    </div>
   <% end %>
 </div>
 

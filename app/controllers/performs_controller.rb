@@ -1,15 +1,44 @@
 class PerformsController < ApplicationController
   before_action :set_perform, only: %i[ show edit update destroy ]
 
+
+  def day(day)
+    @performs = Perform.order(:start).select do |perform|
+      perform.start.day?
+    end
+  end
+
+  def jeudi
+    @performs = Perform.order(:start).select do |perform|
+      perform.start.thursday?
+    end
+  end
+
+  def vendredi
+    @performs = Perform.order(:start).select do |perform|
+      perform.start.friday?
+    end
+  end
+
+  def samedi
+    @performs = Perform.order(:start).select do |perform|
+      perform.start.saturday?
+    end
+    @spectacle_cover = "cghl0ue5m127ziptd81qfomp7561"
+  end
+
+  def dimanche
+    @performs = Perform.order(:start).select do |perform|
+      perform.start.sunday?
+    end
+  end
+
   #work only for new, create
   #before_action :set_spectacle, only: %i[ new edit create update destroy ]
 
-  def date
-    @perform.start != nil ? (@perform.start.strftime('%I:%M | %a %d %^b')) : ()
 
-  end
   def top
-    @performs = Perform.where(collected: true)
+    @performs = Perform.order(:start).where(collected: true)
 
     @markers = @performs.map do |perform|
       {
@@ -20,13 +49,17 @@ class PerformsController < ApplicationController
         marker_html: render_to_string(partial: "marker", locals: {perform: perform}), # Pass the perform to the partial
         #start_time_html: render_to_string(partial: "start_time"), locals: {perform: perform}
       }
+
     end
   end
 
-
   # GET /performs or /performs.json
   def index
-    @performs = Perform.all
+    #@performs = Perform.all
+
+    @performs = Perform.order(:start)
+
+
 
     #@performs = Perform.geocoded
     # The `geocoded` scope filters only performs with coordinates

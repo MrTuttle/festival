@@ -6,6 +6,15 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+# to test : require for cloudinary iamges
+require "open-uri"
+file = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+article = Article.new(title: "NES", body: "A great console")
+article.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+article.save
+
+#---- seed
+
 puts "Cleaning database..."
 Perform.destroy_all
 Spectacle.destroy_all

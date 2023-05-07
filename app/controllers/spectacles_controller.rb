@@ -4,6 +4,8 @@ class SpectaclesController < ApplicationController
 
   def index
     @spectacles = Spectacle.all
+    @spectacle_cover = "cghl0ue5m127ziptd81qfomp7561"
+
   end
 
   def show
