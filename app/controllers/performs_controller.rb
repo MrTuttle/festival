@@ -2,14 +2,28 @@ class PerformsController < ApplicationController
   before_action :set_perform, only: %i[ show edit update destroy ]
 
 
-
+  def day(day)
+    @performs = Perform.order(:start).select do |perform|
+      perform.start.day?
+    end
+  end
+  def jeudi
+    @performs = Perform.order(:start).select do |perform|
+      perform.start.thursday?
+    end
+  end
+  def vendredi
+    @performs = Perform.order(:start).select do |perform|
+      perform.start.friday?
+    end
+  end
   def samedi
-    @performs = Perform.all.select do |perform|
+    @performs = Perform.order(:start).select do |perform|
       perform.start.saturday?
     end
   end
   def dimanche
-    @performs = Perform.all.select do |perform|
+    @performs = Perform.order(:start).select do |perform|
       perform.start.sunday?
     end
   end
@@ -20,7 +34,7 @@ class PerformsController < ApplicationController
 
 
   def top
-    @performs = Perform.where(collected: true)
+    @performs = Perform.order(:start).where(collected: true)
 
     @markers = @performs.map do |perform|
       {
@@ -35,18 +49,10 @@ class PerformsController < ApplicationController
     end
   end
 
-  def saturday
-    @performs = Perform.where()
-  end
-
-
   # GET /performs or /performs.json
   def index
     #@performs = Perform.all
-    #@performs = Perform.all.sort_by(:start, :order => "DESC")
-    #@performs = Perform.all.sort_by(:all, :order => :"date")
-    #@performs = Perform.all.sort_by{|start, value| value }
-    #@performs = Perform.all.sort_by{|:start, :order| :order => "DESC")}
+
     @performs = Perform.order(:start)
 
 

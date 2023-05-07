@@ -1,10 +1,2 @@
-<h1 class="first_title"> samedi</h1>
-<div id="collecteds" class="cards">
-  <% @performs.each do |perform| %>
-        <div class="card no_link">
-      <%= link_to perform do %>
-          <%= render perform %>
-      <% end %>
-        </div>
-  <% end %>
-</div>
+<h1 class="first_title"> Samedi</h1>
+<%= render "list_per_day" %>
