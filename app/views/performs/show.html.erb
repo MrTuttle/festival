@@ -8,8 +8,8 @@
 
   <div>
     <p>
-      <%= link_to "Back to perform", performs_path %> |
-      <%= link_to "Edit this perform", edit_perform_path(@perform) %> |
+      <%= link_to "Back", :back %> |
+      <%= link_to "Editer cette représentation", edit_perform_path(@perform) %> |
       <%= link_to "Delete",
       perform_path(@perform),
       data: {turbo_method: :delete, turbo_confirm: "delete this spectacle ?"} %>

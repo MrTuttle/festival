@@ -7,27 +7,31 @@ class PerformsController < ApplicationController
       perform.start.day?
     end
   end
+
   def jeudi
     @performs = Perform.order(:start).select do |perform|
       perform.start.thursday?
     end
   end
+
   def vendredi
     @performs = Perform.order(:start).select do |perform|
       perform.start.friday?
     end
   end
+
   def samedi
     @performs = Perform.order(:start).select do |perform|
       perform.start.saturday?
     end
+    @spectacle_cover = "cghl0ue5m127ziptd81qfomp7561"
   end
+
   def dimanche
     @performs = Perform.order(:start).select do |perform|
       perform.start.sunday?
     end
   end
-
 
   #work only for new, create
   #before_action :set_spectacle, only: %i[ new edit create update destroy ]
