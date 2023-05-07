@@ -42,7 +42,14 @@ class PerformsController < ApplicationController
 
   # GET /performs or /performs.json
   def index
-    @performs = Perform.all
+    #@performs = Perform.all
+    #@performs = Perform.all.sort_by(:start, :order => "DESC")
+    #@performs = Perform.all.sort_by(:all, :order => :"date")
+    #@performs = Perform.all.sort_by{|start, value| value }
+    #@performs = Perform.all.sort_by{|:start, :order| :order => "DESC")}
+    @performs = Perform.order(:start)
+
+
 
     #@performs = Perform.geocoded
     # The `geocoded` scope filters only performs with coordinates
