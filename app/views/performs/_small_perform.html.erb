@@ -1,0 +1,22 @@
+      <div class="card no_link">
+        <div class="p-4">
+          <%= link_to perform do %>
+            <p class="mb-0"><strong>date : </strong>
+              <% date = perform.start %>
+              <%= date.strftime('%H:%M | %a %d %^b') if !date.nil? %>
+            </p>
+
+            <p class="mb-0"><strong>Address : </strong>
+                <%= perform.address %>
+            </p>
+                <p class=""><strong>Collected : </strong>
+                <%= perform.collected %>
+            </p>
+          <% end %>
+          <div class="">
+            <%= simple_form_for(perform) do |f| %>
+              <%= f.input :collected %>
+            <% end %>
+          </div>
+        </div>
+      </div>
