@@ -18,7 +18,7 @@
     <%= perform.spectacle.title %>
   </h2>
   <p class="mb-0">
-    <strong>Date:</strong>
+    <strong>Dateu:</strong>
     <%= perform.start != nil ? (perform.start.strftime('%H:%M | %a %d %^b')) : () %>
     <%#= perform.start.strftime('%I:%M | %a %d %B') %>
   </p>
@@ -33,8 +33,18 @@
   </p>
 
   <p class="mb-0">
-    <strong>Collected:</strong>
-    <%= perform.collected %>
+
+    <div data-controller="insert-in-collection">
+      <strong>Collected:</strong>
+      <%= form_for perform do |form| %>
+        <p class="mb-0"><strong>
+          <%#= form.label :collected, "Collected" %>
+        </strong></p>
+        <%= form.check_box :collected %>
+        <%= form.submit "ok" %>
+      <%#= perform.collected %>
+    <% end %>
+    </div>
   </p>
 
 

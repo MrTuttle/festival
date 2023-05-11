@@ -11,6 +11,8 @@
   <div class="form-inputs">
 
     <%#= f.input :start, as: :datetime %>
+    <%#= f.association :spectacle %>
+
     <%= f.input :start, as: :datetime, label:'Launch Date & Time', class: "form-control form-control-lg", input_html: {value: params[:start]}, wrapper_html: { class: 'mb-3' }, html5: true %>
 
    <%# mapbox address autocomplete %>

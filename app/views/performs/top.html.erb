@@ -3,15 +3,16 @@
   <% @performs.each do |perform| %>
         <div class="card no_link">
       <%= link_to perform do %>
-          <%#= render perform %>
-          <%= render "small_perform", perform: perform %>
+          <%= render perform %>
+          <%#= raise %>
+          <%#= render "small_perform", perform: perform, spectacle: perform.spectacle %>
       <% end %>
         </div>
   <% end %>
 </div>
-
+<%#=
 <div style="width: 100%; height: 600px; margin-top:3rem; margin-bottom:3rem;"
   data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+  data-map-markers-value="%><%#= @markers.to_json %><%#"
+  data-map-api-key-value="%><%#= ENV['MAPBOX_API_KEY'] %><%#">
+</div>%>

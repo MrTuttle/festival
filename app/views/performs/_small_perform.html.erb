@@ -13,9 +13,16 @@
                 <%= perform.collected %>
             </p>
           <% end %>
-          <div class="">
-            <%= simple_form_for(perform) do |f| %>
-              <%= f.input :collected %>
+          <div class="" data-controller="insert-in-collection">
+            <%= simple_form_for([perform],
+              data: {
+                action: "submit->insert-in-collection#send"
+
+              }) do |f|
+            %>
+              <div data-insert-in-collection-target="form">
+                <%= f.input :collected %>
+              </div>
             <% end %>
           </div>
         </div>
