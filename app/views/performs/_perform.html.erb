@@ -34,15 +34,17 @@
 
   <p class="mb-0">
 
-    <div data-controller="insert-in-collection">
+    <div>
       <strong>Collected:</strong>
       <%= form_for perform do |form| %>
         <p class="mb-0"><strong>
           <%#= form.label :collected, "Collected" %>
         </strong></p>
-        <%= form.check_box :collected %>
-        <%= form.submit "ok" %>
-      <%#= perform.collected %>
+        <div data-controller="insert-in-collection"><%= form.check_box :collected, data: { insert_in_collection_target: "radio", action: "submit->insert-in-collection#check"} %>
+          <%#= form.submit "ok" :data-action "submit->insert-in-collection#send"}%>
+          <%= form.submit "ok", data: { action: "submit->insert-in-collection#send", insert_in_collection_target: "bt"} %>
+          <%#= perform.collected %>
+        </div>
     <% end %>
     </div>
   </p>
