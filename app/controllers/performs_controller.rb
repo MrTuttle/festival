@@ -128,7 +128,9 @@ class PerformsController < ApplicationController
   def update
     respond_to do |format|
       if @perform.update(perform_params)
-        format.html { redirect_to perform_url(@perform), notice: "Perform was successfully updated." }
+        #format.html { redirect_to perform_url(@perform), notice: "Perform was successfully updated." }
+        #format.html { notice: "Perform was successfully updated." }
+
         format.json { render :show, status: :ok, location: @perform }
       else
         format.html { render :edit, status: :unprocessable_entity }
