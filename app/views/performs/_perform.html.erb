@@ -36,14 +36,14 @@
 
     <div>
       <strong>Collected:</strong>
+          <%= perform.collected %>
       <%= form_for perform do |form| %>
         <p class="mb-0"><strong>
           <%#= form.label :collected, "Collected" %>
         </strong></p>
-        <div data-controller="insert-in-collection"><%= form.check_box :collected, data: { insert_in_collection_target: "radio", action: "submit->insert-in-collection#check"} %>
-          <%#= form.submit "ok" :data-action "submit->insert-in-collection#send"}%>
-          <%= form.submit "ok", data: { action: "submit->insert-in-collection#send", insert_in_collection_target: "bt"} %>
-          <%#= perform.collected %>
+        <div data-controller="insert-in-collection"><%= form.check_box :collected, data: { insert_in_collection_target: "radio", action: "click->insert-in-collection#check"} %>
+          <%#= form.submit "ok" :data-action "submit->insert-in-collection#check"}%>
+          <%#= form.submit "ok", data: { action: "submit->insert-in-collection#send", insert_in_collection_target: "bt"} %>
         </div>
     <% end %>
     </div>
