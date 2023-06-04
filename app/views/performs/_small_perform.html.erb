@@ -14,9 +14,7 @@
             </p>
           <% end %>
           <div class="">
-            <%= simple_form_for(perform) do |f| %>
-              <%= f.input :collected %>
-            <% end %>
+            <%= render "performs/check", perform: perform, spectacle:spectacle %>
           </div>
         </div>
       </div>

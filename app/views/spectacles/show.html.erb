@@ -9,7 +9,7 @@
   <p>* * * * * * * * * * *</p>
   <div class="cards">
     <% @spectacle.performs.each do | perform | %>
-      <%= render "performs/small_perform", perform: perform %>
+      <%= render "performs/small_perform", perform: perform, spectacle:@spectacle %>
     <% end %>
   </div>
 

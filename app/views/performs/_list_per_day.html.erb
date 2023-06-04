@@ -3,7 +3,10 @@
         <div class="card no_link">
       <%= link_to perform do %>
           <%= render perform %>
+
       <% end %>
-        </div>
+      <div class="check px-4 pb-4">
+        <%= render "performs/check", perform: perform %></div>
+      </div>
   <% end %>
 </div>
