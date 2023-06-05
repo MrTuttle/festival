@@ -2,13 +2,8 @@
 <%= render "map", markers:@markers %>
 <div id="collecteds" class="cards">
   <% @performs.each do |perform| %>
-        <div class="card no_link">
-      <%= link_to perform do %>
-          <%= render perform %>
+        <%= render "performs/middle_perform", perform: perform, spectacle:@spectacle %>
 
-      <% end %>
-      <div class="check px-4 pb-4">
-        <%= render "performs/check", perform: perform %></div>
-      </div>
+
   <% end %>
 </div>
