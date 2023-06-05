@@ -1,0 +1,19 @@
+<div class="card-product">
+    <% perform.spectacle.photos.each do |photo| %>
+    <%= link_to perform.spectacle do %>
+      <%= cl_image_tag photo.key, height: 200, width: 200, crop: :fill %>
+      <% end %>
+    <% end %>
+  <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
+  <div class="card-product-infos">
+    <h2><%= perform.spectacle.title %></h2>
+      <p>
+        <% date = perform.start %>
+        <%= date.strftime('%H:%M | %a %d %^b') if !date.nil? %>
+      </p>
+      <%# <p><strong>Address : </strong> %>
+        <%#= perform.address %>
+      <%# </p> %>
+      <p><%= render "performs/check", perform: perform, spectacle:spectacle %></p>
+  </div>
+</div>

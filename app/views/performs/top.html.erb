@@ -2,7 +2,8 @@
 <%= render "map", markers:@markers %>
 <div id="collecteds" class="cards">
   <% @performs.each do |perform| %>
-        <%= render "performs/middle_perform", perform: perform, spectacle:@spectacle %>
+        <%#= render "performs/middle_perform", perform: perform, spectacle:@spectacle %>
+        <%= render "card_product", perform: perform, spectacle:@spectacle %>
 
 
   <% end %>
