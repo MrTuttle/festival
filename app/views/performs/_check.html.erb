@@ -1,0 +1,8 @@
+        <%= simple_form_for(perform) do |f| %>
+              <%= f.input :collected %>
+              <%= f.submit "update" %>
+              <%#= link_to "Update",
+    perform_path(perform),
+    data: {turbo_method: :update, turbo_confirm: "update this spectacle ?"} %>
+    <%#= f.button :submit %>
+            <% end %>

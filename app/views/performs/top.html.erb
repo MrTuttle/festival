@@ -1,16 +1,10 @@
 <h1 class="first_title"> Votre selection (collected perform)</h1>
+<%= render "map", markers:@markers %>
 <div id="collecteds" class="cards">
   <% @performs.each do |perform| %>
-        <div class="card no_link">
-      <%= link_to perform do %>
-          <%= render perform %>
-      <% end %>
-        </div>
-  <% end %>
-</div>
+        <%#= render "performs/middle_perform", perform: perform, spectacle:@spectacle %>
+        <%= render "card_product", perform: perform, spectacle:@spectacle %>
 
-<div style="width: 100%; height: 600px; margin-top:3rem; margin-bottom:3rem;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+  <% end %>
 </div>

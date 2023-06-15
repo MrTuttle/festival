@@ -1,0 +1,21 @@
+<div class="card no_link">
+  <div class="p-4">
+    <% perform.spectacle.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 80, width: 80, crop: :fill %>
+    <% end %>
+      <p><strong><%= perform.spectacle.title %></strong></p>
+    <%= link_to perform.spectacle do %>
+      <p class="mb-0">
+        <% date = perform.start %>
+        <%= date.strftime('%H:%M | %a %d %^b') if !date.nil? %>
+      </p>
+      <p class="mb-0"><strong>Address : </strong>
+        <%= perform.address %>
+      </p>
+
+    <% end %>
+    <div class="">
+      <%= render "performs/check", perform: perform, spectacle:spectacle %>
+    </div>
+  </div>
+</div>
