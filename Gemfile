@@ -32,6 +32,9 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 4.0"
 
+# TEST FLO a simple gem to transform datas already write in seed.rb [https://github.com/rroblak/seed_dump]
+gem 'seed_dump'
+
 gem "geocoder"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
